@@ -217,12 +217,16 @@ def Ebay_MarketData(URL,pagenumbers,browser,sold=False,test=False):
         return MarketData
   return MarketData
       
-def start_browser(driverpath="chromedriver.exe",brave="C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"):
+def start_browser(driverpath="chromedriver.exe",other_Browser="C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"):
     driverpath="chromedriver.exe"
-    brave="C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
-    option = webdriver.ChromeOptions()
-    option.binary_location = brave
-    browser = webdriver.Chrome(executable_path=driverpath, chrome_options=option)
+    if other_Browser:
+      other_Browser="C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
+      option = webdriver.ChromeOptions()
+      option.binary_location = other_Browser
+      browser = webdriver.Chrome(executable_path=driverpath, chrome_options=option)
+    else:
+        browser = webdriver.Chrome(executable_path=driverpath) 
+        
     return browser
 
 def main():
