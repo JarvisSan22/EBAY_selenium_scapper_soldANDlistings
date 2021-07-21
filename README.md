@@ -2,6 +2,7 @@
 
 * [X] Base scapper for sold and current listing   
 * [X] jupyiter notebook test (Test_Scrapper)
+* [ ] 中 SQL Data server and Flask dashboard (SQL_APP)
 * [ ] Sales Anaylsis 
 * [ ] メリカりやヤフオク!の機能
  

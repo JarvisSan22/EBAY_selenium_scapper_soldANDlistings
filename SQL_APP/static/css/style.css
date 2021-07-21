@@ -1,0 +1,36 @@
+main {
+    margin:50px;
+}
+.title {
+    font-size:24px;
+}
+.text_area {
+    margin: 10px 0 10px 0;
+}
+#new_text {
+    font-size:24px;
+    width:600px;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0px 5px;
+}
+.card {
+    width: 590px;
+    margin:20px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #ccc;
+}
+.card:hover {
+    opacity: 0.5;
+}
+td.button {width:50px;text-align:right;}
+.td_update_txt {display:none;}
+.txt_update {
+    width: 98%;
+    height: 34px;
+    font-size: 17px;
+    padding-left: 8px;
+    border-radius: 5px;
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet"  href="/static/css/style.css">
+		<title>SQL EBAY DASH</title>
+    
+	<script
+	src="https://code.jquery.com/jquery-3.5.1.js"
+	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/static/js/jquery.longpress.js"></script>
+
+	<script>
+		$(document).ready(function(){
+		  $('#new_text').keydown(function(e) {
+			if (e.keyCode == 13) {
+			  $('form[name="search"]').attr('action', '/add')
+			  $('form[name="search"]').submit();
+			}
+		  });
+	
+
+		$('.card').longpress(function(){
+			var id = $(this).attr("search_id");
+			$('#id').val(id);
+			$('form[name="search"]').attr('action','/runsearch');
+			$('form[name="search"]').submit();
+
+			},
+				1000
+			);
+		});
+
+
+	  </script>
+
+
+
+
+	</head>
+	
+	<body>
+	       
+		<form name"search" action="/add" method="POST">
+			<h1> Run new Search </h1>
+				<input type="text" name="searchname" placeholder="input serach name"/>
+				<input type="number" name="pagenumbers" min="1" max="50" />
+				<input type="checkbox" name="Sold"><label for="SoldOrLisitning">Sold</label>
+				<input type="submit" value="Search item"/>
+				
+			<h1>Past Searchs</h1>
+				<table>
+					
+				{% for search in searchs %} 
+					<tr>
+						<td class="card" 
+						id="search_{{search.id}}"
+						style="{% if search.status == 1 %}background-color:#FFFF00;{% else %}background-color:#FFFFFF;{% endif %}"
+						search_id="{{search.id}}">
+						{{search.searchname}} | {{search.searchdate}} |
+							{% if search.soldtype== True %} sold {% else %} Listing {% endif %}
+						 | {{ search.pagenum}}
+						</td>
+						<td class="td_run" id=""
+					</tr>
+				{% endfor %}
+					
+				</table>
+				<input type="hidden" name="id" id="id">
+		</form>
+
+
+
+	</body>
+</html>
